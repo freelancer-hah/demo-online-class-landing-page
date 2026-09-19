@@ -1,5 +1,4 @@
 import WhatsAppIcon from "./WhatsAppIcon";
-import { WHATSAPP_LINK } from "../config";
 
 export default function Topbar() {
   return (
@@ -14,13 +13,14 @@ export default function Topbar() {
 
         <nav className="nav-links">
           <a href="#why-us" className="nav-link">Why Us</a>
-          <a href="#method" className="nav-link">3-Step Method</a>
+          <a href="#method" className="nav-link">Method</a>
+          <a href="#curriculum" className="nav-link">Curriculum</a>
           <a href="#results" className="nav-link">Results</a>
           <a href="#tutor" className="nav-link">Tutor</a>
           <a href="#faq" className="nav-link">FAQ</a>
         </nav>
 
-        <a className="top-cta" href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+        <a className="top-cta" href="#book-trial">
           <WhatsAppIcon />
           <span>Book Free Trial</span>
         </a>
