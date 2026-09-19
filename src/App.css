@@ -1269,8 +1269,541 @@ footer {
   }
 }
 
-@media (max-width: 899px) {
-  body {
-    padding-bottom: 74px;
+/* --- Booking Widget --- */
+.booking-section {
+  padding: 80px 0;
+  background: 
+    radial-gradient(ellipse 800px 400px at 50% 0%, rgba(201, 152, 57, 0.15), transparent 70%),
+    var(--ink);
+  color: var(--paper);
+}
+
+.booking-card {
+  background: rgba(21, 34, 56, 0.85);
+  border: 1px solid rgba(201, 152, 57, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.booking-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 36px;
+}
+
+.booking-header h2 {
+  font-size: clamp(26px, 4vw, 36px);
+  margin: 0 0 10px;
+  color: var(--paper);
+}
+
+.booking-header p {
+  color: var(--text-light);
+  font-size: 15px;
+  margin: 0;
+}
+
+.widget-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.widget-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--brass-light);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.widget-options-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 600px) {
+  .widget-options-row {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 }
+
+.widget-options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 600px) {
+  .widget-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 800px) {
+  .widget-options-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.option-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.option-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(201, 152, 57, 0.4);
+}
+
+.option-btn.selected {
+  background: rgba(201, 152, 57, 0.2);
+  border: 2px solid var(--brass);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(201, 152, 57, 0.25);
+}
+
+.booking-action-box {
+  background: rgba(11, 19, 32, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+@media (min-width: 640px) {
+  .booking-action-box {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.action-tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #10b981;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.action-summary {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--paper);
+}
+
+/* --- Score Simulator --- */
+.simulator-section {
+  padding: 80px 0;
+  background: var(--fog);
+}
+
+.simulator-card {
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line);
+}
+
+.slider-control-box {
+  background: var(--paper-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.slider-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.slider-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.slider-value {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  color: var(--ink);
+}
+
+.slider-value strong {
+  font-size: 24px;
+  font-family: 'Fraunces', serif;
+  color: var(--brass-dark);
+}
+
+.grade-pill-tag {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.score-range-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--fog-dark);
+  outline: none;
+  cursor: pointer;
+  accent-color: var(--brass);
+}
+
+.slider-limits {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 8px;
+}
+
+.simulator-results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 800px) {
+  .simulator-results-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.recovery-breakdown-card {
+  background: var(--paper-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.recovery-breakdown-card h4 {
+  font-size: 15px;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+
+.recovery-item {
+  margin-bottom: 16px;
+}
+
+.recovery-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13.5px;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+}
+
+.recovery-label strong {
+  color: var(--brass-dark);
+  font-weight: 700;
+  font-size: 14.5px;
+}
+
+.mini-bar {
+  height: 8px;
+  background: var(--fog-dark);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.mini-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brass), var(--brass-light));
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.projected-score-card {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.projected-badge {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brass-light);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.projected-numbers {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.projected-val {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--brass-light);
+  line-height: 1;
+}
+
+.projected-max {
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+.projected-grade {
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid;
+  padding: 4px 16px;
+  border-radius: var(--radius-full);
+  margin-bottom: 14px;
+}
+
+.projected-note {
+  font-size: 12.5px;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- Curriculum Section --- */
+.curriculum-section {
+  padding: 80px 0;
+  background: var(--paper);
+}
+
+.curriculum-tabs-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 860px) {
+  .curriculum-tabs-wrapper {
+    grid-template-columns: 300px 1fr;
+    gap: 32px;
+  }
+}
+
+.topic-tab-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.topic-tab-btn {
+  padding: 16px 20px;
+  background: var(--paper-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.topic-tab-btn:hover {
+  background: var(--fog);
+  border-color: var(--brass-light);
+}
+
+.topic-tab-btn.active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--brass);
+  box-shadow: 0 4px 14px rgba(11, 19, 32, 0.15);
+}
+
+.topic-tab-btn .tab-name {
+  font-weight: 600;
+  font-size: 14.5px;
+}
+
+.topic-tab-btn .tab-weight {
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.topic-detail-card {
+  background: var(--paper-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.difficulty-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--oxblood);
+  background: rgba(116, 29, 42, 0.1);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: 8px;
+}
+
+.detail-header h3 {
+  font-size: 24px;
+  margin: 0;
+  color: var(--ink);
+}
+
+.weight-badge {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brass-dark);
+  background: rgba(201, 152, 57, 0.15);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+.detail-body-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .detail-body-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.trap-box {
+  background: #fff5f5;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.fix-box {
+  background: #f0fdf4;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.box-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.trap-box .box-title {
+  color: #dc2626;
+}
+
+.fix-box .box-title {
+  color: #059669;
+}
+
+.trap-box p,
+.fix-box p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --- Floating WhatsApp Bubble --- */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: #25d366;
+  color: #ffffff;
+  padding: 10px 18px 10px 12px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 900px) {
+  .floating-whatsapp {
+    display: inline-flex;
+  }
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
+}
+
+.floating-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-ping {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: pulseDot 1.8s infinite ease-in-out;
+}
+
